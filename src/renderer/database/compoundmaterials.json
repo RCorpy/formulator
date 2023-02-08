@@ -1,0 +1,7 @@
+{
+    "mat1":{
+        "type": "compound",
+        "name": "example compound 1",
+        "composedof": [{"example 1": 50}, {"example 2":50}]
+    }
+}
