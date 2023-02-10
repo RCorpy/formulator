@@ -8,8 +8,8 @@ export default function Sidebar({ menuOption, ...props }) {
   const navigate = useNavigate();
 
   const handleRedirect = (newAddress: string) => {
-    console.log('redirecting to:', newAddress);
-    navigate('/modificar/' + newAddress);
+    console.log('redirecting to:', '/'+ menuOption + '/' + newAddress);
+    navigate('/'+ menuOption);
   };
 
   return (

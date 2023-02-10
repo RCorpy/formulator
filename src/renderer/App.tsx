@@ -7,6 +7,15 @@ import './App.css';
 import * as XLSX from 'xlsx';
 import ProductSelector from './assets/ProductSelector';
 import Sidebar from './assets/Sidebar';
+import Menu from './assets/Menu'
+import Gestion from './assets/Gestion';
+import Datos from './assets/Datos';
+import Fabricacion from './assets/Fabricacion';
+import FabricacionNuevo from './assets/FabricacionNuevo';
+import FabricacionHistorial from './assets/FabricacionHistorial';
+import GestionNuevo from './assets/GestionNuevo';
+import GestionBuscar from './assets/GestionBuscar';
+
 
 function Hello() {
   const fileRoute =
@@ -62,8 +71,8 @@ function Hello() {
 function Example() {
   return (
     <>
-      {['start', 'end', 'top', 'bottom'].map((placement, idx) => (
-        <Sidebar key={idx} placement={placement} menuOption={placement} />
+      {['menu','fabricacion', 'gestion', 'datos'].map((placement, idx) => (
+        <Sidebar key={idx} menuOption={placement} />
       ))}
     </>
   );
@@ -76,13 +85,22 @@ export default function App() {
         {Example()}
         <Routes>
           <Route path="/" element={<Hello />} />
-          <Route path="/fabricacion" element={<ProductSelector />} />
-          <Route path="/buscar" element={<ProductSelector />} />
-          <Route path="/modificar/:id" element={<ProductSelector />} />
-          <Route path="/nuevo" element={<ProductSelector />} />
-          <Route path="/eliminar/:id" element={<ProductSelector />} />
-          <Route path="/guardardb" element={<ProductSelector />} />
-          <Route path="/importardb" element={<ProductSelector />} />
+
+          <Route path="/menu" element={<Menu />} />
+
+          <Route path="/fabricacion" element={<Fabricacion />} />
+          <Route path="/fabricacion/nuevo" element={<FabricacionNuevo />} />
+          <Route path="/fabricacion/historial" element={<FabricacionHistorial />} />
+          <Route path="/fabricacion/buscar" element={<ProductSelector />} />
+
+          <Route path="/gestion" element={<Gestion />} />
+          <Route path="/gestion/nuevo" element={<GestionNuevo />} />
+          <Route path="/gestion/buscar" element={<GestionBuscar />} />
+          <Route path="/gestion/modificar/:id" element={<ProductSelector />} />
+          <Route path="/gestion/eliminar/:id" element={<ProductSelector />} />
+
+          <Route path="/datos" element={<Datos />} />
+          
         </Routes>
       </Router>
     </>

@@ -14,6 +14,8 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import {FETCH_DATA_FROM_STORAGE, HANDLE_FETCH_DATA, HANDLE_SAVE_DATA, SAVE_DATA_IN_STORAGE} from '../renderer/assets/Constants'
+
 
 class AppUpdater {
   constructor() {
@@ -135,3 +137,24 @@ app
     });
   })
   .catch(console.log);
+
+
+  ipcMain.on(FETCH_DATA_FROM_STORAGE, (event, message)=>{
+    console.log("ipcMain recieved: FETCH_DATA_FROM_STORAGE with:"+message)
+    /*
+    mainWindow.send(HANDLE_FETCH_DATA, {
+      success:true,
+      message: message
+    })
+    */
+  })
+
+  ipcMain.on(SAVE_DATA_IN_STORAGE, (event, message)=>{
+    console.log("ipcMain recieved: SAVE_DATA_IN_STORAGE with:"+message)
+    /*
+    mainWindow.send(HANDLE_SAVE_DATA, {
+      success:true,
+      message: message
+    })
+    */
+  })
